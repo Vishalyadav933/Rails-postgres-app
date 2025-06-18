@@ -4,7 +4,7 @@ metadata:
   name: rails-service
 spec:
   selector:
-    app: rails-app
+    app: rails   # ✅ This must match the deployment label
   ports:
     - protocol: TCP
       port: 80
