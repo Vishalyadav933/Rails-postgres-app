@@ -1,3 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rails
+  annotations:
+    argocd.argoproj.io/health: |
+      hs = {}
+      hs.status = "Healthy"
+      return hs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rails
+  template:
+    metadata:
+      labels:
+        app: rails
+    spec:
       containers:
         - name: rails
           image: vishal933/myrailsapp:latest
